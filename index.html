@@ -8,28 +8,43 @@
 	<!-- 建立整體樣式指導：基礎字型、字體、基底色、標題、段落樣式等等 -->
 	<link rel="stylesheet" type="text/css" href="css/common.css" />
 	<!-- 建立雨量觀測部份的樣式 -->
-	<link rel="stylesheet" type="text/css" href="css/raining.css" />
+	<link rel="stylesheet" type="text/css" href="css/current-weather.css" />
+	<link rel="stylesheet" type="text/css" href="css/daily-rainfall.css" />
+	<link rel="stylesheet" type="text/css" href="css/regional-overview.css" />
 </head>
 <body>
-	<!-- 美化雨量觀測顯示、資料處理或建立資料分頁功能 -->
-	<h3>雨量觀測</h3>
-	<div id="raining"></div>
+	<header>
+	</header>
+	<section class="current-weather">
+	</section>
+	<section class="daily-rainfall">
+		<!-- 美化雨量觀測顯示、資料處理或建立資料分頁功能 -->
+		<h3>雨量觀測</h3>
+		<div id="raining"></div>
 
-	<!--
-		完成各縣市氣象預報功能
-		請使用中央氣象局公開 API 的第一個資料集 (/v1/rest/datastore/F-C0032-001)
-		https://opendata.cwa.gov.tw/dist/opendata-swagger.html
-	-->
-	<h3>各縣市最新氣象預報 ( 文字描述、低溫、高溫 )</h3>
+		<!--
+			完成各縣市氣象預報功能
+			請使用中央氣象局公開 API 的第一個資料集 (/v1/rest/datastore/F-C0032-001)
+			https://opendata.cwa.gov.tw/dist/opendata-swagger.html
+		-->
+	</section>
+	<section class="regional-overview">
+		<h3>各縣市最新氣象預報 ( 文字描述、低溫、高溫 )</h3>
 
-	<h4>======================地震預報，請注意!請注意!!!!!!!!===========================================</h4>
-	<h5>==========================豪雨特報========================</h5>
-	<div id="weather"></div>
+		<h4>======================地震預報，請注意!請注意!!!!!!!!===========================================</h4>
+		<h5>==========================豪雨特報========================</h5>
+		<div id="weather"></div>
+	</section>
+	<footer>
+	</footer>
 	<script>
 		// 以下是我申請的 KEY 請使用無所謂，你也可以自己去中央氣象局網站申請一個
 		// https://opendata.cwa.gov.tw/index
 		const CWB_API_KEY="CWB-840CF1E7-FC59-4E06-81C9-F4BB79253855";
 	</script>
-	<script src="js/raining.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/current-weather.js"></script>
+	<script src="js/daily-rainfall.js"></script>
+	<script src="js/regional-overview.js"></script>
 </body>
 </html>
