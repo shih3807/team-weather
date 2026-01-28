@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>雨量觀測</title>
+    <title>中央氣象資訊平台</title>
+    <!-- 設定 icon -->
+    <link rel="icon" href="./image/icon.png" />
+    <!-- 引入字型 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,8 +22,43 @@
     <link rel="stylesheet" type="text/css" href="css/regional-overview.css" />
   </head>
   <body>
-    <header></header>
-    <section class="current-weather"></section>
+    <header>
+      <div class="header_info">
+        <div class="header_info_title">
+          <div class="header_info_title_icon">
+            <img src="./image/header/header_icon.png" />
+          </div>
+          <div class="header_info_title_text">
+            <div class="header_info_title_text_cn">中央氣象資訊平台</div>
+            <div class="header_info_title_text_en">
+              Central Weather Information Platform
+            </div>
+          </div>
+        </div>
+        <div class="header_info_time">
+          <div class="header_info_time_date">2026 年 1 月 26 日 星期一</div>
+          <div class="header_info_time_update">
+            <div class="header_info_time_update_icon">
+              <img src="./image/header/header_clock.png" />
+            </div>
+            <div class="header_info_time_update_time">最後更新 上午 11：25</div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="current-weather">
+      <div class="current-weather_local">
+        <div class="current-weather_local_container">
+          <div class="current-weather_local_container_text">
+            <div class="current-weather_local_container_text_location"></div>
+                        <div class="current-weather_local_container_text_temp"></div>
+            <div class="current-weather_local_container_text_location"></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="current-weather_national"></div>
+    </section>
     <section class="daily-rainfall">
       <!-- 美化雨量觀測顯示、資料處理或建立資料分頁功能 -->
       <h3>雨量觀測</h3>
