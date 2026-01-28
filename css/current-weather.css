@@ -39,6 +39,7 @@ header > .header_info > .header_info_title > .header_info_title_text {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 header
@@ -65,7 +66,7 @@ header > .header_info > .header_info_time {
   display: flex;
   flex-direction: column;
   align-items: end;
-  gap: 2px;
+  gap: 6px;
 }
 
 header > .header_info > .header_info_time > .header_info_time_date {
