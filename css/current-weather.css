@@ -112,6 +112,7 @@ header
   width: 100%;
   flex-shrink: 0;
 }
+
 .current-weather_local {
   height: 575px;
   width: 100%;
@@ -120,6 +121,8 @@ header
   background-size: cover;
   flex-shrink: 0;
 }
+
+/* 全國溫度區塊 */
 .current-weather_national {
   height: 125px;
   width: 100%;
@@ -127,6 +130,7 @@ header
   flex-shrink: 0;
 }
 
+/* footer */
 footer {
   height: 100px;
   width: 100%;
