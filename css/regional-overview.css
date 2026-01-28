@@ -1,0 +1,137 @@
+/* ============================================
+   縣市天氣預報區域樣式
+   ============================================ */
+
+/* 縣市天氣預報區塊容器 */
+.regional-overview {
+	width: 100%;
+	max-width: 1200px; /* 最大寬度限制，保持內容不會過寬 */
+	padding: 20px;
+	margin: 20px 0;
+	background-color: #F5F7FA; /* 淺灰色背景 */
+}
+
+/* 區塊標題樣式 */
+.regional-overview h3 {
+	font-size: 24px;
+	font-weight: 700; /* 粗體 */
+	margin-bottom: 20px;
+	color: #1A2332;
+	text-align: center;
+}
+
+/* ============================================
+   天氣預報表格樣式
+   ============================================ */
+
+/* 表格整體樣式 */
+.weather-table {
+	width: 100%;
+	border-collapse: collapse; /* 合併邊框，避免雙重邊框 */
+	margin: 0 auto; /* 水平置中 */
+	background-color: #FFFFFF;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* 輕微陰影效果 */
+	border-radius: 4px; /* 圓角 */
+	overflow: hidden; /* 隱藏超出圓角的內容 */
+	border: 1px solid #E0E0E0; /* 淺灰色邊框 */
+}
+
+/* 表頭樣式 */
+.weather-table th {
+	background-color: #7EA2B7;
+	color: #374151; /* 深灰色文字 */
+	font-weight: 700; /* 粗體 */
+	padding: 12px 8px;
+	text-align: center;
+	border: 1px solid #E0E0E0; /* 淺灰色邊框 */
+	font-size: 14px;
+}
+
+/* 第一欄（縣市欄）寬度設定 */
+.weather-table th:first-child {
+	width: 10%;
+}
+
+/* 第二欄（時間欄）寬度設定 */
+.weather-table th:nth-child(2) {
+	width: 8%;
+}
+
+/* 表格單元格樣式 */
+.weather-table td {
+	padding: 10px 8px;
+	text-align: center;
+	border: 1px solid #E0E0E0; /* 淺灰色邊框 */
+	font-size: 14px;
+	color: #374151; /* 深灰色文字 */
+	transition: background-color 0.2s ease; /* 背景色變化動畫效果 */
+}
+
+/* 偶數行背景色（目前與奇數行相同，皆為白色） */
+.weather-table tr:nth-child(even) {
+	background-color: #FFFFFF;
+}
+
+/* 奇數行背景色 */
+.weather-table tr:nth-child(odd) {
+	background-color: #FFFFFF;
+}
+
+/* 滑鼠懸停時的行背景色 */
+.weather-table tr:hover {
+	background-color: #F9FAFB; /* 淺灰色背景 */
+}
+
+/* 滑鼠懸停時，合併單元格（rowspan）的背景色 */
+.weather-table tr:hover td[rowspan] {
+	background-color: #F9FAFB;
+}
+
+/* 合併單元格（縣市名稱欄位）樣式 */
+.weather-table td[rowspan] {
+	background-color: #FFFFFF; /* 白色背景 */
+	font-weight: 600; /* 半粗體 */
+	vertical-align: middle; /* 垂直置中 */
+	color: #374151; /* 深灰色文字 */
+	border-right: 1px solid #E0E0E0; /* 右側邊框 */
+}
+
+/* 第一欄非合併單元格樣式（時間欄：白天/晚上） */
+.weather-table td:first-child:not([rowspan]) {
+	font-weight: 500; /* 中等粗細 */
+	color: #374151;
+}
+
+/* 最後一欄的邊框樣式 */
+.weather-table td:last-child,
+.weather-table th:last-child {
+	border-right: 1px solid #E0E0E0;
+}
+
+/* ============================================
+   響應式設計 - 行動裝置適配
+   ============================================ */
+@media (max-width: 768px) {
+	/* 小螢幕時表格字體大小調整 */
+	.weather-table {
+		font-size: 12px;
+	}
+
+	/* 小螢幕時表頭和單元格的內距與字體調整 */
+	.weather-table th,
+	.weather-table td {
+		padding: 8px 4px; /* 減少內距 */
+		font-size: 12px; /* 縮小字體 */
+	}
+
+	/* 小螢幕時區塊內距調整並允許橫向滾動 */
+	.regional-overview {
+		padding: 10px;
+		overflow-x: auto; /* 當表格過寬時可橫向滾動 */
+	}
+
+	/* 小螢幕時表格最小寬度設定，確保內容不會過度壓縮 */
+	.weather-table {
+		min-width: 800px;
+	}
+}
