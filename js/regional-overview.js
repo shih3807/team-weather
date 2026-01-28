@@ -125,7 +125,7 @@ function resultData(transformData) {
       '星期六',
     ];
 
-    for (let i = 1; i < 8; i++) {
+    for (let i = 1; i < 7; i++) {
       const dateString = getweekdayDate(i);
       const date = new Date(dateString);
       const dayOfWeek = date.getDay(); // 0-6，0 是星期日
