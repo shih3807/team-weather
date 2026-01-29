@@ -1,7 +1,6 @@
+const apiKey = CONFIG.CWB_API_KEY;
 const currentWeatherModel = {
-  async fetchWeatherInfo() {
-    const CWB_API_KEY = 'CWA-CDCFFC63-52A1-44F8-AB6B-73AE3E2CD128';
-    const URL = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${CWB_API_KEY}`;
+  async fetchWeatherInfo(URL) {
     try {
       const res = await fetch(URL, {
         method: 'GET',
@@ -13,5 +12,15 @@ const currentWeatherModel = {
       console.log('fetch weather data error:', error);
     }
   },
+  compileNationWeatherData(data) {
+    
+  },
 };
 currentWeatherModel.fetchWeatherInfo();
+const currentWeatherView = {};
+const currentWeatherController = {
+  async nationalWeatherInfo() {
+    const URL = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${apiKey}`;
+    const wholeWheatherInfo = currentWeatherModel.fetchWeatherInfo(URL);
+  },
+};

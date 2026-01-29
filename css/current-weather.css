@@ -1,0 +1,269 @@
+/* header */
+header {
+  width: 100%;
+  height: 120px;
+  background-color: #7ea2b7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 16px auto;
+}
+
+/* header 資訊包裝層 */
+header > .header_info {
+  height: 46px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  width: 1376px;
+}
+
+/*  左側標題區塊  */
+header > .header_info > .header_info_title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+header > .header_info > .header_info_title > .header_info_title_icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-top: 3px;
+}
+
+header > .header_info > .header_info_title > .header_info_title_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header
+  > .header_info
+  > .header_info_title
+  > .header_info_title_text
+  > .header_info_title_text_cn {
+  font-size: 24px;
+  color: #fff;
+}
+
+header
+  > .header_info
+  > .header_info_title
+  > .header_info_title_text
+  > .header_info_title_text_en {
+  font-size: 11.1px;
+  color: #fff;
+}
+
+/*  右側時間區塊  */
+header > .header_info > .header_info_time {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 6px;
+}
+
+header > .header_info > .header_info_time > .header_info_time_date {
+  font-size: 14px;
+  color: #fff;
+}
+
+header > .header_info > .header_info_time > .header_info_time_update {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 16px;
+}
+
+header
+  > .header_info
+  > .header_info_time
+  > .header_info_time_update
+  > .header_info_time_update_icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3px;
+}
+
+header
+  > .header_info
+  > .header_info_time
+  > .header_info_time_update
+  > .header_info_time_update_time {
+  font-size: 12px;
+  color: #fff;
+  opacity: 70%;
+  display: flex;
+  align-items: center;
+}
+
+/* 上方天氣區塊 */
+.current-weather {
+  height: auto;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* 地區溫度區塊 */
+
+/* 主要外層容器 */
+.current-weather_local {
+  height: 575px;
+  width: 100%;
+  background-image: url('/image/local-weather/header.png');
+  background-position: center;
+  background-size: cover;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-weather_local_container {
+  height: inherit;
+  width: 1376px;
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.current-weather_local_container_text {
+  width: 1376px;
+  height: 308px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* --- 地點顯示區塊 --- */
+.current-weather_local_container_text_location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.current-weather_local_container_text_location_icon img {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-weather_local_container_text_location_text {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 100px;
+}
+
+/* --- 溫度與天氣概況區塊 --- */
+.current-weather_local_container_text_temperature {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 8px;
+}
+
+.current-weather_local_container_text_temperature_current {
+  font-size: 90px;
+  font-weight: 600px;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.current-weather_local_container_text_temperature_weather {
+  font-size: 30px;
+  color: #fff;
+  font-weight: 100px;
+}
+
+.current-weather_local_container_text_temperature_feeling {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 100px;
+  opacity: 70%;
+}
+
+/* --- 其他詳細數據區塊 (風速、濕度、能見度) --- */
+.current-weather_local_container_text_other {
+    width: 672px;
+    height: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 三欄平均分佈 */
+  gap: 24px;
+  padding-top: 8px;
+}
+
+/* 風速、濕度、能見度的共通樣式 */
+.current-weather_local_container_text_other_wind,
+.current-weather_local_container_text_other_humidity,
+.current-weather_local_container_text_other_visibility {
+  display: flex;
+  align-items: center;
+  text-align: start;
+  gap: 12px;
+}
+
+/* Icon  */
+.current-weather_local_container_text_other_wind_icon,
+.current-weather_local_container_text_other_humidity_icon,
+.current-weather_local_container_text_other_visibility_icon {
+  width: 48px;
+  height: 48px;
+  background-color: rgb(255, 255, 255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+.current-weather_local_container_text_other_wind_icon img,
+.current-weather_local_container_text_other_humidity_icon img,
+.current-weather_local_container_text_other_visibility_icon img{
+  width: 24px;
+  height: 24px;
+}
+
+
+/* 數據文字 */
+.current-weather_local_container_text_other_wind_text_title,
+.current-weather_local_container_text_other_humidity_text_title,
+.current-weather_local_container_text_other_visibility_text_title {
+  font-size: 14px;
+  color: #fff;
+  opacity: 0.7;
+}
+
+.current-weather_local_container_text_other_wind_text_value,
+.current-weather_local_container_text_other_humidity_text_value,
+.current-weather_local_container_text_other_visibility_text_value {
+  font-size: 17.4px;
+  color: #fff;
+}
+
+/* 全國溫度區塊 */
+.current-weather_national {
+  height: 125px;
+  width: 100%;
+  background-color: #fff;
+  flex-shrink: 0;
+  border-bottom: #F5F7FA 2px solid;
+}
+
+/* footer */
+footer {
+  height: 100px;
+  width: 100%;
+  background-color: #7ea2b7;
+  bottom: 0;
+  flex-shrink: 0;
+}
