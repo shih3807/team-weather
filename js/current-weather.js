@@ -44,26 +44,64 @@ const currentWeatherModel = {
       return { error: true, msg: 'Cannot find this city wheather info' };
     }
   },
-  // 整理要帶傘嗎所需資料
-  compileWeatherData(cityData) {
-    const ave = (cityData.minTemp + cityData.maxTemp) / 2;
-    if (cityData.pop >= 70) {
+  // 要帶傘嗎小訊息
+  umbrellaMsg(pop) {
+    if (pop >= 70) {
       msg = '高機率降雨，建議帶傘出門。';
-    } else if (cityData.pop >= 30) {
+    } else if (pop >= 30) {
       msg = '天氣不穩定，帶把傘備用吧。';
     } else {
       msg = '天氣晴朗，是出門的好日子。';
     }
+    return msg;
+  },
+  // 整理要帶傘嗎所需資料
+  compileWeatherData(cityData, umbrellaMsg) {
+    const ave = (cityData.minTemp + cityData.maxTemp) / 2;
 
     return {
       cityNameValue: cityData.cityName,
       popValue: cityData.pop,
       wxValue: cityData.wx,
-      msgValue: msg,
+      msgValue: umbrellaMsg,
       aveValue: ave,
       maxTValue: cityData.maxTemp,
       minTValue: cityData.minTemp,
       ciValue: cityData.ci,
+    };
+  },
+  // 整理時間
+  compileTime() {
+    const now = new Date();
+
+    // 日期
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1;
+    const date = now.getDate();
+
+    const weekArray = [
+      '星期日',
+      '星期一',
+      '星期二',
+      '星期三',
+      '星期四',
+      '星期五',
+      '星期六',
+    ];
+    const day = weekArray[now.getDay()];
+
+    const dateString = `${year} 年 ${month} 月 ${date} 日 ${day}`;
+
+    // 時間
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+    const ampm = hour >= 12 ? '下午' : '上午';
+    const twelveHourClock = hour >= 12 ? hour - 12 : hour;
+    const timeString = `最後更新 ${ampm} ${twelveHourClock}：${minute}`;
+
+    return {
+      date: dateString,
+      time: timeString,
     };
   },
 };
@@ -109,42 +147,14 @@ const currentWeatherView = {
     minT.textContent = `${weatherData.minTValue}°C`;
     ci.textContent = weatherData.ciValue;
   },
-  currentTime() {
-    const now = new Date();
-
-    // 日期
-    const year = now.getFullYear();
-    const month = now.getMonth() + 1; 
-    const date = now.getDate();
-
-    const weekArray = [
-      '星期日',
-      '星期一',
-      '星期二',
-      '星期三',
-      '星期四',
-      '星期五',
-      '星期六',
-    ];
-    const day = weekArray[now.getDay()];
-
-    const dateString = `${year} 年 ${month} 月 ${date} 日 ${day}`;
-
-    // 時間
-    const hour = now.getHours();
-    const minute = now.getMinutes();
-    const ampm = hour >= 12 ? '下午' : '上午';
-    const twelveHourClock = hour >= 12 ? hour - 12 : hour;
-    const timeString = `最後更新 ${ampm} ${twelveHourClock}：${minute}`;
-
-    // 3. 注入到 HTML
+  // 渲染時間
+  renderTime(date, time) {
     const dateElement = document.querySelector('.header_info_time_date');
     const updateElement = document.querySelector(
       '.header_info_time_update_time'
     );
-
-    dateElement.textContent = dateString;
-    updateElement.textContent = timeString;
+    dateElement.textContent = date;
+    updateElement.textContent = time;
   },
 };
 
@@ -162,15 +172,26 @@ const currentWeatherController = {
       currentCity
     );
     console.log(thisCityData);
+    // 取得要帶傘嗎訊息
+    const umbrellaMsg = currentWeatherModel.umbrellaMsg(thisCityData.pop);
 
     // 整理要帶傘嗎所需資料
-    const weatherData = currentWeatherModel.compileWeatherData(thisCityData);
+    const weatherData = currentWeatherModel.compileWeatherData(
+      thisCityData,
+      umbrellaMsg
+    );
     console.log(weatherData);
 
     // 渲染畫面
     currentWeatherView.renderHeader(weatherData);
   },
+  currentTime() {
+    const now = currentWeatherModel.compileTime();
+    const date = now.date;
+    const time = now.time;
+    currentWeatherView.renderTime(date, time);
+  },
 };
 
 // currentWeatherController.WeatherInfo();
-currentWeatherView.currentTime();
+currentWeatherController.currentTime();
