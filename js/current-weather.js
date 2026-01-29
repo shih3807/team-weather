@@ -11,12 +11,12 @@ const currentWeatherModel = {
     }
   },
   // 取得單一城市即時氣象資料
-  chooseOneCityWeatherData(data, cityName) {
-    if (!data.success) {
+  chooseOneCityWeatherData(wholeCitydata, cityName) {
+    if (!wholeCitydata.success) {
       return { error: true, msg: 'Cannot fetch weather data' };
     }
     try {
-      const cityData = data.records.location.find(
+      const cityData = wholeCitydata.records.location.find(
         (city) => city.locationName === cityName
       );
 
@@ -45,29 +45,69 @@ const currentWeatherModel = {
     }
   },
   // 整理要帶傘嗎所需資料
-  compileWeatherData(data) {
-    const ave = (data.minTemp + data.maxTemp) / 2;
-    if (data.pop >= 70) {
+  compileWeatherData(cityData) {
+    const ave = (cityData.minTemp + cityData.maxTemp) / 2;
+    if (cityData.pop >= 70) {
       msg = '高機率降雨，建議帶傘出門。';
-    } else if (data.pop >= 30) {
+    } else if (cityData.pop >= 30) {
       msg = '天氣不穩定，帶把傘備用吧。';
     } else {
       msg = '天氣晴朗，是出門的好日子。';
     }
 
     return {
-      降雨機率: data.pop,
-      天氣狀態: data.wx,
-      要帶傘嗎: msg,
-      城市平均溫度: ave,
-      城市最高溫: data.maxTemp,
-      城市最低溫: data.minTemp,
-      目前舒適度: data.ci,
+      cityNameValue: cityData.cityName,
+      popValue: cityData.pop,
+      wxValue: cityData.wx,
+      msgValue: msg,
+      aveValue: ave,
+      maxTValue: cityData.maxTemp,
+      minTValue: cityData.minTemp,
+      ciValue: cityData.ci,
     };
   },
 };
 
-const currentWeatherView = {};
+const currentWeatherView = {
+  // 渲染首頁
+  renderHeader(weatherData) {
+    // 選擇要渲染的區塊
+    const city = document.querySelector(
+      '.current-weather_local_container_text_location_text'
+    );
+    const pop = document.querySelector(
+      '.current-weather_local_container_text_pop_current_value'
+    );
+    const wx = document.querySelector(
+      '.current-weather_local_container_text_pop_weather'
+    );
+    const msg = document.querySelector(
+      '.current-weather_local_container_text_messenge'
+    );
+    const ave = document.querySelector(
+      '.current-weather_info_container_ave_text_value'
+    );
+    const maxT = document.querySelector(
+      '.current-weather_info_container_max_text_value'
+    );
+    const minT = document.querySelector(
+      '.current-weather_info_container_min_text_value'
+    );
+    const ci = document.querySelector(
+      '.current-weather_info_container_ci_text_value'
+    );
+
+    // 注入資料
+    city.textContent = weatherData.cityNameValue;
+    pop.textContent = weatherData.popValue;
+    wx.textContent = weatherData.wxValue;
+    msg.textContent = weatherData.msgValue;
+    ave.textContent = `${weatherData.aveValue}°C`;
+    maxT.textContent = `${weatherData.maxTValue}°C`;
+    minT.textContent = `${weatherData.minTValue}°C`;
+    ci.textContent = weatherData.ciValue;
+  },
+};
 
 const currentWeatherController = {
   async WeatherInfo() {
@@ -85,8 +125,11 @@ const currentWeatherController = {
     console.log(thisCityData);
 
     // 整理要帶傘嗎所需資料
-    const resultData = currentWeatherModel.compileWeatherData(thisCityData);
-    console.log(resultData);
+    const weatherData = currentWeatherModel.compileWeatherData(thisCityData);
+    console.log(weatherData);
+
+    // 渲染畫面
+    currentWeatherView.renderHeader(weatherData);
   },
 };
 
