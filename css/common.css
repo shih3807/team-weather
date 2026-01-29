@@ -1,3 +1,29 @@
-body{
-	font-size:20px;
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'inter', 'Noto Sans TC', sans-serif;
+}
+
+html,
+body {
+  height: auto;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  cursor: text;
 }

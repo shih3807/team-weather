@@ -1,35 +1,223 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>雨量觀測</title>
-	<!-- 建立整體樣式指導：基礎字型、字體、基底色、標題、段落樣式等等 -->
-	<link rel="stylesheet" type="text/css" href="css/common.css" />
-	<!-- 建立雨量觀測部份的樣式 -->
-	<link rel="stylesheet" type="text/css" href="css/raining.css" />
-</head>
-<body>
-	<!-- 美化雨量觀測顯示、資料處理或建立資料分頁功能 -->
-	<h3>雨量觀測</h3>
-	<div id="raining"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>要帶傘嗎</title>
+    <!-- 設定 icon -->
+    <link rel="icon" href="./image/icon.png" />
+    <!-- 引入字型 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 建立整體樣式指導：基礎字型、字體、基底色、標題、段落樣式等等 -->
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <!-- 建立雨量觀測部份的樣式 -->
+    <link rel="stylesheet" type="text/css" href="css/current-weather.css" />
+    <link rel="stylesheet" type="text/css" href="css/daily-rainfall.css" />
+    <link rel="stylesheet" type="text/css" href="css/regional-overview.css" />
+  </head>
 
-	<!--
-		完成各縣市氣象預報功能
-		請使用中央氣象局公開 API 的第一個資料集 (/v1/rest/datastore/F-C0032-001)
-		https://opendata.cwa.gov.tw/dist/opendata-swagger.html
-	-->
-	<h3>各縣市最新氣象預報 ( 文字描述、低溫、高溫 )</h3>
+  <body>
+    <header>
+      <div class="header_info">
+        <div class="header_info_title">
+          <div class="header_info_title_icon">
+            <img src="./image/header/header_icon.png" />
+          </div>
+          <div class="header_info_title_text">
+            <div class="header_info_title_text_cn">要帶傘嗎</div>
+            <div class="header_info_title_text_en">Umbrella Today</div>
+          </div>
+        </div>
+        <div class="header_info_time">
+          <div class="header_info_time_date">2026 年 1 月 26 日 星期一</div>
+          <div class="header_info_time_update">
+            <div class="header_info_time_update_icon">
+              <img src="./image/header/header_clock.png" />
+            </div>
+            <div class="header_info_time_update_time">最後更新 上午 11：25</div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="current-weather">
+      <div class="current-weather_local">
+        <div class="current-weather_local_container">
+          <div class="current-weather_local_container_text">
+            <div class="current-weather_local_container_text_location">
+              <div class="current-weather_local_container_text_location_icon">
+                <img src="./image/local-weather/location.png" />
+              </div>
+              <div class="current-weather_local_container_text_location_text">
+                臺北市
+              </div>
+            </div>
 
-	<h4>======================地震預報，請注意!請注意!!!!!!!!===========================================</h4>
-	<h5>==========================豪雨特報========================</h5>
-	<div id="weather"></div>
-	<script>
-		// 以下是我申請的 KEY 請使用無所謂，你也可以自己去中央氣象局網站申請一個
-		// https://opendata.cwa.gov.tw/index
-		const CWB_API_KEY="CWB-840CF1E7-FC59-4E06-81C9-F4BB79253855";
-	</script>
-	<script src="js/raining.js"></script>
-</body>
+            <div class="current-weather_local_container_text_pop">
+              <div class="current-weather_local_container_text_pop_current">
+                <div
+                  class="current-weather_local_container_text_pop_current_value"
+                >
+                  60
+                </div>
+                <div
+                  class="current-weather_local_container_text_pop_current_percent"
+                >
+                  %
+                </div>
+              </div>
+              <div class="current-weather_local_container_text_pop_weather">
+                多雲時晴
+              </div>
+            </div>
+
+            <div class="current-weather_local_container_text_messenge">
+              天氣不穩定，帶把傘備用吧。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="current-weather_info">
+        <div class="current-weather_info_container">
+          <div class="current-weather_info_container_ave">
+            <div class="current-weather_info_container_ave_icon">
+              <img src="./image/local-weather/ave.png" />
+            </div>
+            <div class="current-weather_info_container_ave_text">
+              <div class="current-weather_info_container_ave_text_key">
+                城市平均溫度
+              </div>
+              <div class="current-weather_info_container_ave_text_value">
+                24°C
+              </div>
+            </div>
+          </div>
+          <div class="current-weather_info_container_max">
+            <div class="current-weather_info_container_max_icon">
+              <img src="./image/local-weather/max.png" />
+            </div>
+            <div class="current-weather_info_container_max_text">
+              <div class="current-weather_info_container_max_text_key">
+                城市最高溫
+              </div>
+              <div class="current-weather_info_container_max_text_value">
+                28°C
+              </div>
+            </div>
+          </div>
+          <div class="current-weather_info_container_min">
+            <div class="current-weather_info_container_min_icon">
+              <img src="./image/local-weather/min.png" />
+            </div>
+            <div class="current-weather_info_container_min_text">
+              <div class="current-weather_info_container_min_text_key">
+                城市最低溫
+              </div>
+              <div class="current-weather_info_container_min_text_value">
+                20°C
+              </div>
+            </div>
+          </div>
+          <div class="current-weather_info_container_ci">
+            <div class="current-weather_info_container_ci_icon">
+              <img src="./image/local-weather/ci.png" />
+            </div>
+            <div class="current-weather_info_container_ci_text">
+              <div class="current-weather_info_container_ci_text_key">
+                目前舒適度
+              </div>
+              <div class="current-weather_info_container_ci_text_value">
+                稍有寒意至舒適
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="daily-rainfall">
+      <!-- 美化雨量觀測顯示、資料處理或建立資料分頁功能 -->
+      <div class="rain-header">
+        <h3>
+          <img src="image/raindrop.png" width="25px" height="25px" /> 雨量監測
+        </h3>
+        <!-- <button id="toggleview">切換圖表</button>-->
+      </div>
+      <!-- 雨量監測 -->
+      <div id="raining" class="rain-content">
+        <!-- 左:長條圖 -->
+        <div class="rain-chart">
+          <h3>各縣市雨量分布圖</h3>
+          <canvas id="rainBarchart"></canvas>
+
+          <div class="base">
+            <span class="low">&lt; 20 mm</span>
+            <span class="mid">20 ~ 40 mm</span>
+            <span class="high">&gt; 40 mm</span>
+          </div>
+        </div>
+
+        <!-- 右:數據統計 -->
+        <div class="rain-status">
+          <!-- 頁面切換 -->
+          <div class="table-header">
+            <h3>雨量統計</h3>
+            <div class="pagination">
+              <button id="prevpage">◀</button>
+              <span id="pageinfo"> 1 / 2</span>
+              <button id="nextpage">▶</button>
+            </div>
+          </div>
+
+          <!-- 表格 -->
+          <div class="rain-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>地區</th>
+                  <th>最高雨量 (mm)</th>
+                  <th>最低雨量 (mm)</th>
+                </tr>
+              </thead>
+              <tbody id="raintablebody">
+                <!-- JS動態產生 -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="regional-overview">
+      <h3><img src="./image/calender.png" alt="">一周預報</h3>
+      <div class="table-wrapper">
+        <table class="weather-table"></table>
+      </div>
+
+      <div id="weather"></div>
+    </section>
+    <footer>
+      <div class="footer_text">
+        定位服務 | 由 BigDataCloud 提供<br />
+        資料來源 |
+        本平台氣象資料由中央氣象署提供，僅供參考使用。實際天氣狀況請以氣象署最新發布為準。
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <!-- 把KEY存放在config中 -->
+    <script src="js/config.js"></script>
+    <script src="js/current-weather.js" defer></script>
+    <!-- for chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/daily-rainfall.js"></script>
+    <script src="js/regional-overview.js"></script>
+  </body>
 </html>
