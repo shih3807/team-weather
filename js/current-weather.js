@@ -1,5 +1,3 @@
-// const apiKey = CWB_API_KEY; TODO:設定成全域api key
-
 const currentWeatherModel = {
   // 取得GPS定位
   async getLocalion() {
@@ -58,7 +56,7 @@ const currentWeatherModel = {
   },
   // 將城市名稱轉為氣象資料名稱
   formatTaiwanCity(name) {
-    if (!name|| typeof name !== 'string') return '臺北市';
+    if (!name || typeof name !== 'string') return '臺北市';
 
     // 城市對照表
     const cityMap = {
@@ -251,7 +249,6 @@ const currentWeatherView = {
       '.current-weather_info_container_ci_text_value'
     );
 
-
     // 注入資料
     city.textContent = weatherData.cityNameValue;
     pop.textContent = weatherData.popValue;
@@ -276,15 +273,14 @@ const currentWeatherView = {
 const currentWeatherController = {
   async WeatherInfo() {
     // 取得氣象資料
-    const URL =
-      'https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWA-CDCFFC63-52A1-44F8-AB6B-73AE3E2CD128';
+    const URL = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${CWB_API_KEY}`;
     const wholeWeatherInfo = await currentWeatherModel.fetchWeatherInfo(URL);
 
     // 取得所在城市
     city = await currentWeatherController.currentLocation();
 
     // 取得單一城市氣象資料
-    const currentCity = city? city:'臺北市';
+    const currentCity = city ? city : '臺北市';
     const thisCityData = currentWeatherModel.chooseOneCityWeatherData(
       wholeWeatherInfo,
       currentCity
@@ -326,4 +322,4 @@ const currentWeatherController = {
   },
 };
 
-// currentWeatherController.WeatherInfo();
+currentWeatherController.WeatherInfo();

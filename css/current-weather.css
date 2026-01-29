@@ -217,7 +217,7 @@ header
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: #E5E7EB 2px solid;
+  border-bottom: #e5e7eb 2px solid;
   margin-bottom: 32px;
 }
 
@@ -252,7 +252,7 @@ header
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #E5E7EB;
+  background-color: #e5e7eb;
 }
 
 .current-weather_info_container_ave_icon img,
@@ -290,14 +290,12 @@ header
   font-size: 28px;
   font-weight: 100;
   color: #1a2332;
-;
 }
 
 .current-weather_info_container_ci_text_value {
   font-size: 20px;
   font-weight: 100;
   color: #1a2332;
-;
 }
 
 /* footer */
@@ -312,20 +310,21 @@ footer {
   justify-content: center;
   margin-top: 33px;
 }
-.footer_text{
-    font-size: 14px;
-    color: #fff;
+.footer_text {
+  font-size: 14px;
+  color: #fff;
 }
 
 /* 響應式設計 */
 @media (max-width: 1440px) {
   header > .header_info,
-.current-weather_local_container,
-.current-weather_local_container_text,
-.current-weather_info_container {
-  width: 90%; 
-  max-width: 1376px; 
-}}
+  .current-weather_local_container,
+  .current-weather_local_container_text,
+  .current-weather_info_container {
+    width: 90%;
+    max-width: 1376px;
+  }
+}
 
 /* --- 平板模式 (1024px 以下) --- */
 @media (max-width: 1024px) {
@@ -349,19 +348,18 @@ footer {
     max-width: 280px;
   }
 }
-@media (max-width:700px) {
-    /* Footer 調整 */
+@media (max-width: 700px) {
+  /* Footer 調整 */
   footer {
     height: auto;
     padding: 30px 20px;
   }
-  
+
   .footer_text {
     font-size: 12px;
     line-height: 1.8;
     text-align: center;
   }
-
 }
 /* --- 手機模式  --- */
 @media (max-width: 360px) {
@@ -385,11 +383,11 @@ footer {
 
   /* 主視覺區塊調整 */
   .current-weather_local {
-    height: 450px; 
+    height: 450px;
   }
 
   .current-weather_local_container_text_pop_current_value {
-    font-size: 70px; 
+    font-size: 70px;
   }
 
   .current-weather_local_container_text_messenge {
