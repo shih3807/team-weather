@@ -271,6 +271,10 @@ const currentWeatherView = {
 };
 
 const currentWeatherController = {
+  init() {
+    currentWeatherController.WeatherInfo();
+    currentWeatherController.currentTime();
+  },
   async WeatherInfo() {
     // 取得氣象資料
     const URL = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${CWB_API_KEY}`;
@@ -322,4 +326,4 @@ const currentWeatherController = {
   },
 };
 
-currentWeatherController.WeatherInfo();
+currentWeatherController.init();

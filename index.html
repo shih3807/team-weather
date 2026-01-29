@@ -142,9 +142,62 @@
     </section>
     <section class="daily-rainfall">
       <!-- 美化雨量觀測顯示、資料處理或建立資料分頁功能 -->
-      <h3>雨量觀測</h3>
-      <div id="raining"></div>
+      <div class="rain-header">
+        <h3>雨量監測</h3>
+        <!-- <button id="toggleview">切換圖表</button>-->
+      </div>
+      <!-- 雨量監測 -->
+      <div id="raining" class="rain-content">
+        <!-- 左:長條圖 -->
+        <div class="rain-chart">
+          <h3>各縣市雨量分布圖</h3>
+          <canvas id="rainBarchart"></canvas>
+
+          <div class="base">
+            <span class="low">&lt; 20 mm</span>
+            <span class="mid">20 ~ 40 mm</span>
+            <span class="high">&gt; 40 mm</span>
+          </div>
+        </div>
+
+        <!-- 右:數據統計 -->
+        <div class="rain-status">
+          <!-- 頁面切換 -->
+          <div class="table-header">
+            <h3>雨量統計</h3>
+            <div class="pagination">
+              <button id="prevpage">◀</button>
+              <span id="pageinfo"> 1 / 2</span>
+              <button id="nextpage">▶</button>
+            </div>
+          </div>
+
+          <!-- 表格 -->
+          <div class="rain-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>地區</th>
+                  <th>最高雨量 (mm)</th>
+                  <th>最低雨量 (mm)</th>
+                </tr>
+              </thead>
+              <tbody id="raintablebody">
+                <!-- JS動態產生 -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <div class="section-divider"></div>
+
+    <!--
+			完成各縣市氣象預報功能
+			請使用中央氣象局公開 API 的第一個資料集 (/v1/rest/datastore/F-C0032-001)
+			https://opendata.cwa.gov.tw/dist/opendata-swagger.html
+		-->
     <section class="regional-overview">
       <h3>一周預報</h3>
       <table class="weather-table"></table>
@@ -163,6 +216,8 @@
     <!-- 把KEY存放在config中 -->
     <script src="js/config.js"></script>
     <script src="js/current-weather.js" defer></script>
+    <!-- for chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/daily-rainfall.js"></script>
     <script src="js/regional-overview.js"></script>
   </body>
