@@ -316,3 +316,92 @@ footer {
     font-size: 14px;
     color: #fff;
 }
+
+/* 響應式設計 */
+@media (max-width: 1440px) {
+  header > .header_info,
+.current-weather_local_container,
+.current-weather_local_container_text,
+.current-weather_info_container {
+  width: 90%; 
+  max-width: 1376px; 
+}}
+
+/* --- 平板模式 (1024px 以下) --- */
+@media (max-width: 1024px) {
+  .current-weather_info {
+    height: auto;
+    padding: 24px 0;
+  }
+
+  .current-weather_info_container {
+    display: grid; /* 改用 Grid 兩兩一排 */
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .current-weather_info_container_ave,
+  .current-weather_info_container_max,
+  .current-weather_info_container_min,
+  .current-weather_info_container_ci {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+@media (max-width:700px) {
+    /* Footer 調整 */
+  footer {
+    height: auto;
+    padding: 30px 20px;
+  }
+  
+  .footer_text {
+    font-size: 12px;
+    line-height: 1.8;
+    text-align: center;
+  }
+
+}
+/* --- 手機模式  --- */
+@media (max-width: 360px) {
+  /* Header 調整：由橫排改為直排 */
+  header {
+    height: auto;
+    padding: 20px 0;
+  }
+
+  header > .header_info {
+    flex-direction: column;
+    height: auto;
+    gap: 16px;
+    text-align: center;
+  }
+
+  header > .header_info > .header_info_time {
+    align-items: center;
+    text-align: center;
+  }
+
+  /* 主視覺區塊調整 */
+  .current-weather_local {
+    height: 450px; 
+  }
+
+  .current-weather_local_container_text_pop_current_value {
+    font-size: 70px; 
+  }
+
+  .current-weather_local_container_text_messenge {
+    font-size: 18px;
+    margin-top: 20px;
+    height: auto;
+    padding: 10px 0 10px 20px;
+  }
+
+  /* 天氣詳細資訊改為垂直單欄排列 */
+  .current-weather_info_container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
