@@ -9,6 +9,7 @@
   padding: 20px;
   margin: 20px 0;
   background-color: #f5f7fa; /* 淺灰色背景 */
+  border-radius: 5px;
 }
 
 /* 區塊標題樣式 */
@@ -34,7 +35,6 @@
 .table-wrapper {
   overflow-x: auto;
   max-width: 100%;
-  border-radius: 4px; /* 圓角 */
 }
 
 /* 表格整體樣式 */
@@ -45,7 +45,6 @@
   margin: 0 auto; /* 水平置中 */
   background-color: #ffffff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* 輕微陰影效果 */
-  border-radius: 4px; /* 圓角 */
   border: 1px solid #e0e0e0; /* 淺灰色邊框 */
 }
 
