@@ -58,108 +58,94 @@
               </div>
             </div>
 
-            <div class="current-weather_local_container_text_temperature">
-              <div
-                class="current-weather_local_container_text_temperature_current"
-              >
-                24°C
+            <div class="current-weather_local_container_text_pop">
+              <div class="current-weather_local_container_text_pop_current">
+                <div
+                  class="current-weather_local_container_text_pop_current_value"
+                >
+                  60
+                </div>
+                <div
+                  class="current-weather_local_container_text_pop_current_percent"
+                >
+                  %
+                </div>
               </div>
-              <div
-                class="current-weather_local_container_text_temperature_weather"
-              >
+              <div class="current-weather_local_container_text_pop_weather">
                 多雲時晴
-              </div>
-              <div
-                class="current-weather_local_container_text_temperature_feeling"
-              >
-                體感溫度 26°C
               </div>
             </div>
 
-            <div class="current-weather_local_container_text_other">
-              <div class="current-weather_local_container_text_other_wind">
-                <div
-                  class="current-weather_local_container_text_other_wind_icon"
-                >
-                  <img src="./image/local-weather/wind.png" />
-                </div>
-                <div
-                  class="current-weather_local_container_text_other_wind_text"
-                >
-                  <div
-                    class="current-weather_local_container_text_other_wind_text_title"
-                  >
-                    風速
-                  </div>
-                  <div
-                    class="current-weather_local_container_text_other_wind_text_value"
-                  >
-                    12 km/h
-                  </div>
-                </div>
-              </div>
-              <div class="current-weather_local_container_text_other_humidity">
-                <div
-                  class="current-weather_local_container_text_other_humidity_icon"
-                >
-                  <img src="./image/local-weather/humidity.png" />
-                </div>
-                <div
-                  class="current-weather_local_container_text_other_humidity_text"
-                >
-                  <div
-                    class="current-weather_local_container_text_other_humidity_text_title"
-                  >
-                    濕度
-                  </div>
-                  <div
-                    class="current-weather_local_container_text_other_humidity_text_value"
-                  >
-                    65%
-                  </div>
-                </div>
-              </div>
-              <div
-                class="current-weather_local_container_text_other_visibility"
-              >
-                <div
-                  class="current-weather_local_container_text_other_visibility_icon"
-                >
-                  <img src="./image/local-weather/visibility.png" />
-                </div>
-                <div
-                  class="current-weather_local_container_text_other_visibility_text"
-                >
-                  <div
-                    class="current-weather_local_container_text_other_visibility_text_title"
-                  >
-                    能見度
-                  </div>
-                  <div
-                    class="current-weather_local_container_text_other_visibility_text_value"
-                  >
-                    10 km
-                  </div>
-                </div>
-              </div>
+            <div class="current-weather_local_container_text_messenge">
+              天氣不穩定，帶把傘備用吧。
             </div>
           </div>
         </div>
       </div>
 
-      <div class="current-weather_national">
-        <div class="current-weather_national_container">
-          <div class="current-weather_national_container_ave"></div>
-          <div class="current-weather_national_container_max"></div>
-          <div class="current-weather_national_container_min"></div>
-          <div class="current-weather_national_container"></div>
+      <div class="current-weather_info">
+        <div class="current-weather_info_container">
+          <div class="current-weather_info_container_ave">
+            <div class="current-weather_info_container_ave_icon">
+              <img src="./image/local-weather/ave.png" />
+            </div>
+            <div class="current-weather_info_container_ave_text">
+              <div class="current-weather_info_container_ave_text_key">
+                城市平均溫度
+              </div>
+              <div class="current-weather_info_container_ave_text_value">
+                24°C
+              </div>
+            </div>
+          </div>
+          <div class="current-weather_info_container_max">
+            <div class="current-weather_info_container_max_icon">
+              <img src="./image/local-weather/max.png" />
+            </div>
+            <div class="current-weather_info_container_max_text">
+              <div class="current-weather_info_container_max_text_key">
+                城市最高溫
+              </div>
+              <div class="current-weather_info_container_max_text_value">
+                28°C
+              </div>
+            </div>
+          </div>
+          <div class="current-weather_info_container_min">
+            <div class="current-weather_info_container_min_icon">
+              <img src="./image/local-weather/min.png" />
+            </div>
+            <div class="current-weather_info_container_min_text">
+              <div class="current-weather_info_container_min_text_key">
+                城市最低溫
+              </div>
+              <div class="current-weather_info_container_min_text_value">
+                20°C
+              </div>
+            </div>
+          </div>
+          <div class="current-weather_info_container_ci">
+            <div class="current-weather_info_container_ci_icon">
+              <img src="./image/local-weather/ci.png" />
+            </div>
+            <div class="current-weather_info_container_ci_text">
+              <div class="current-weather_info_container_ci_text_key">
+                目前舒適度
+              </div>
+              <div class="current-weather_info_container_ci_text_value">
+                稍有寒意至舒適
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
     <section class="daily-rainfall">
       <!-- 美化雨量觀測顯示、資料處理或建立資料分頁功能 -->
       <div class="rain-header">
-        <h3>雨量監測</h3>
+        <h3>
+          <img src="image/raindrop.png" width="25px" height="25px" /> 雨量監測
+        </h3>
         <!-- <button id="toggleview">切換圖表</button>-->
       </div>
       <!-- 雨量監測 -->
@@ -209,11 +195,6 @@
 
     <div class="section-divider"></div>
 
-    <!--
-			完成各縣市氣象預報功能
-			請使用中央氣象局公開 API 的第一個資料集 (/v1/rest/datastore/F-C0032-001)
-			https://opendata.cwa.gov.tw/dist/opendata-swagger.html
-		-->
     <section class="regional-overview">
       <h3>一周預報</h3>
       <div class="table-wrapper">
@@ -222,12 +203,18 @@
 
       <div id="weather"></div>
     </section>
-    <footer></footer>
+    <footer>
+      <div class="footer_text">
+        定位服務 | 由 BigDataCloud 提供<br />
+        資料來源 |
+        本平台氣象資料由中央氣象署提供，僅供參考使用。實際天氣狀況請以氣象署最新發布為準。
+      </div>
+    </footer>
 
     <script src="js/main.js"></script>
     <!-- 把KEY存放在config中 -->
     <script src="js/config.js"></script>
-    <script src="js/current-weather.js"></script>
+    <script src="js/current-weather.js" defer></script>
     <!-- for chart -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/daily-rainfall.js"></script>

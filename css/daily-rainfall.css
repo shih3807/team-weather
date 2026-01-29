@@ -1,20 +1,16 @@
-#raining > .station {
-  border-bottom: 1px solid #000000;
-  padding: 15px 0px;
-  line-height: 1.5rem;
-}
-#raining > .station > .name {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-
 .section-divider {
   background-color: #e8e8e8;
   margin-top: 40px;
   margin-bottom: 40px;
 }
 /*====================== 雨量監測 ========================*/
+.rain-header {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.rain-header h3{
+  font-weight: 700;
+}
 .rain-content {
   display: grid;
   grid-template-columns: 3fr 2fr;
@@ -40,6 +36,7 @@
 	margin: 0 0 12px;
 	font-size: 16px;
 	color: #333;
+  font-weight: 600;
 }
 
 /* 右: 數據統計 */
@@ -64,6 +61,7 @@
 .table-header h3 {
   margin: 0;
   font-size: 16px;
+  font-weight: 600;
 }
 
 .pagination {
@@ -110,13 +108,14 @@
 /* 基準說明 */
 .base {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   font-size: 13px;
   margin-top: 12px;
 }
 
 .base span {
   padding: 4px 8px;
+  margin-right: 10px;
   border-radius: 8px;
   color: #fff;
 }
@@ -133,10 +132,25 @@
 
 /* RWD */
 @media (max-width: 600px) {
-  .rainfall {
+  .rain-content {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "chart"
+      "status"
+      "table";
   }
 
+}
+
+@media (max-width: 360px) {
+  .rain-content {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "chart"
+      "status"
+      "table";
+    gap: 16px;
+  }
 }
 
 /*====================== 雨量監測 ========================*/
