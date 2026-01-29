@@ -91,7 +91,7 @@ header
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 3px;
+  padding-top: 1.5px;
 }
 
 header
@@ -119,7 +119,7 @@ header
 .current-weather_local {
   height: 575px;
   width: 100%;
-  background-image: url('/image/local-weather/header.png');
+  background-image: url('../image/local-weather/header.png');
   background-position: center;
   background-size: cover;
   flex-shrink: 0;
@@ -142,7 +142,6 @@ header
   height: 308px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 
 /* --- 地點顯示區塊 --- */
@@ -163,100 +162,140 @@ header
 .current-weather_local_container_text_location_text {
   font-size: 20px;
   color: #fff;
-  font-weight: 100px;
+  font-weight: 100;
 }
 
-/* --- 溫度與天氣概況區塊 --- */
-.current-weather_local_container_text_temperature {
+/* --- 下雨機率 --- */
+.current-weather_local_container_text_pop {
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 8px;
 }
 
-.current-weather_local_container_text_temperature_current {
+.current-weather_local_container_text_pop_current {
+  display: flex;
+  align-items: end;
+  gap: 4px;
+}
+.current-weather_local_container_text_pop_current_value {
   font-size: 90px;
-  font-weight: 600px;
+  font-weight: 400;
   color: #fff;
-  margin-bottom: 4px;
+}
+.current-weather_local_container_text_pop_current_percent {
+  font-size: 40px;
+  font-weight: 400;
+  padding-bottom: 13px;
+  color: #fff;
 }
 
-.current-weather_local_container_text_temperature_weather {
+.current-weather_local_container_text_pop_weather {
   font-size: 30px;
   color: #fff;
   font-weight: 100px;
 }
-
-.current-weather_local_container_text_temperature_feeling {
-  font-size: 16px;
+.current-weather_local_container_text_messenge {
+  display: flex;
+  font-size: 24px;
   color: #fff;
-  font-weight: 100px;
-  opacity: 70%;
+  font-weight: 400;
+  height: 40px;
+  justify-items: center;
+  margin-top: 35px;
+  border-left: #fff 1px solid;
+  padding-left: 20px;
 }
 
-/* --- 其他詳細數據區塊 (風速、濕度、能見度) --- */
-.current-weather_local_container_text_other {
-    width: 672px;
-    height: 56px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 三欄平均分佈 */
-  gap: 24px;
-  padding-top: 8px;
+/* 其他天候資訊區塊 */
+/* 外層容器 */
+.current-weather_info {
+  width: 100%;
+  height: 125px;
+  background-color: #ffffff;
+  padding: 32px auto;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: #e5e7eb 2px solid;
+  margin-bottom: 32px;
 }
 
-/* 風速、濕度、能見度的共通樣式 */
-.current-weather_local_container_text_other_wind,
-.current-weather_local_container_text_other_humidity,
-.current-weather_local_container_text_other_visibility {
+/* 內層包裝 */
+.current-weather_info_container {
   display: flex;
   align-items: center;
-  text-align: start;
-  gap: 12px;
+  gap: 32px;
+  width: 1376px;
 }
 
-/* Icon  */
-.current-weather_local_container_text_other_wind_icon,
-.current-weather_local_container_text_other_humidity_icon,
-.current-weather_local_container_text_other_visibility_icon {
+/* 共通樣式：設定 ave, max, min, ci 四個區塊的基礎樣式 */
+.current-weather_info_container_ave,
+.current-weather_info_container_max,
+.current-weather_info_container_min,
+.current-weather_info_container_ci {
+  width: 320px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 16px;
+}
+
+/* icon */
+.current-weather_info_container_ave_icon,
+.current-weather_info_container_max_icon,
+.current-weather_info_container_min_icon,
+.current-weather_info_container_ci_icon {
   width: 48px;
   height: 48px;
-  background-color: rgb(255, 255, 255,0.1);
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 12px;
+  align-items: center;
+  background-color: #e5e7eb;
 }
-.current-weather_local_container_text_other_wind_icon img,
-.current-weather_local_container_text_other_humidity_icon img,
-.current-weather_local_container_text_other_visibility_icon img{
+
+.current-weather_info_container_ave_icon img,
+.current-weather_info_container_max_icon img,
+.current-weather_info_container_min_icon img,
+.current-weather_info_container_ci_icon img {
   width: 24px;
   height: 24px;
 }
 
+/* 文字區域 */
+.current-weather_info_container_ave_text,
+.current-weather_info_container_max_text,
+.current-weather_info_container_min_text,
+.current-weather_info_container_ci_text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
-/* 數據文字 */
-.current-weather_local_container_text_other_wind_text_title,
-.current-weather_local_container_text_other_humidity_text_title,
-.current-weather_local_container_text_other_visibility_text_title {
+/* 標題樣式 */
+.current-weather_info_container_ave_text_key,
+.current-weather_info_container_max_text_key,
+.current-weather_info_container_min_text_key,
+.current-weather_info_container_ci_text_key {
   font-size: 14px;
-  color: #fff;
-  opacity: 0.7;
+  color: #1a2332;
+  font-weight: 100;
 }
 
-.current-weather_local_container_text_other_wind_text_value,
-.current-weather_local_container_text_other_humidity_text_value,
-.current-weather_local_container_text_other_visibility_text_value {
-  font-size: 17.4px;
-  color: #fff;
+/* 數值樣式 */
+.current-weather_info_container_ave_text_value,
+.current-weather_info_container_max_text_value,
+.current-weather_info_container_min_text_value {
+  font-size: 28px;
+  font-weight: 100;
+  color: #1a2332;
 }
 
-/* 全國溫度區塊 */
-.current-weather_national {
-  height: 125px;
-  width: 100%;
-  background-color: #fff;
-  flex-shrink: 0;
-  border-bottom: #F5F7FA 2px solid;
+.current-weather_info_container_ci_text_value {
+  font-size: 20px;
+  font-weight: 100;
+  color: #1a2332;
 }
 
 /* footer */
@@ -266,4 +305,104 @@ footer {
   background-color: #7ea2b7;
   bottom: 0;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 33px;
+}
+.footer_text {
+  font-size: 14px;
+  color: #fff;
+}
+
+/* 響應式設計 */
+@media (max-width: 1440px) {
+  header > .header_info,
+  .current-weather_local_container,
+  .current-weather_local_container_text,
+  .current-weather_info_container {
+    width: 90%;
+    max-width: 1376px;
+  }
+}
+
+/* --- 平板模式 (1024px 以下) --- */
+@media (max-width: 1024px) {
+  .current-weather_local_container_text_messenge{
+    height: auto;
+  }
+  .current-weather_info {
+    height: auto;
+    padding: 24px 0;
+  }
+
+  .current-weather_info_container {
+    display: grid; /* 改用 Grid 兩兩一排 */
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .current-weather_info_container_ave,
+  .current-weather_info_container_max,
+  .current-weather_info_container_min,
+  .current-weather_info_container_ci {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+@media (max-width: 700px) {
+  /* Footer 調整 */
+  footer {
+    height: auto;
+    padding: 30px 20px;
+  }
+
+  .footer_text {
+    font-size: 12px;
+    line-height: 1.8;
+    text-align: center;
+  }
+}
+/* --- 手機模式  --- */
+@media (max-width: 360px) {
+  /* Header 調整：由橫排改為直排 */
+  header {
+    height: auto;
+    padding: 20px 0;
+  }
+
+  header > .header_info {
+    flex-direction: column;
+    height: auto;
+    gap: 16px;
+    text-align: center;
+  }
+
+  header > .header_info > .header_info_time {
+    align-items: center;
+    text-align: center;
+  }
+
+  /* 主視覺區塊調整 */
+  .current-weather_local {
+    height: 450px;
+  }
+
+  .current-weather_local_container_text_pop_current_value {
+    font-size: 70px;
+  }
+
+  .current-weather_local_container_text_messenge {
+    font-size: 18px;
+    margin-top: 20px;
+    height: auto;
+    padding: 10px 0 10px 20px;
+  }
+
+  /* 天氣詳細資訊改為垂直單欄排列 */
+  .current-weather_info_container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
