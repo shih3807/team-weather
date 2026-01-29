@@ -81,8 +81,8 @@ function resultData(transformData) {
     // 建立新陣列，第一個元素是縣市名稱
     const transformedArray = [county];
 
-    // 將該縣市的所有 WeatherDescription 值加入陣列
-    weatherData.forEach((item) => {
+    // 將該縣市的所有 WeatherDescription 值加入陣列，最多6個（加上縣市名稱共7個元素）
+    weatherData.slice(0, 6).forEach((item) => {
       transformedArray.push(item.WeatherDescription);
     });
 
@@ -142,10 +142,26 @@ function resultData(transformData) {
     // 建立資料列
     tableData.forEach((rowData) => {
       const row = document.createElement('tr');
-      rowData.forEach((cellData) => {
+      rowData.forEach((cellData, cellIndex) => {
         const td = document.createElement('td');
-        // 將句號後面加上換行
-        const formattedText = cellData.replace(/。/g, '。<br>');
+        let formattedText = cellData;
+        
+        // 除了縣市欄位（索引0）之外，其他所有天氣描述欄位都要處理圖片
+        if (cellIndex > 0) {
+          // 決定使用哪個圖片
+          let imageSrc = './image/cloud.png'; // 預設
+          if (cellData.includes('雨')) {
+            imageSrc = './image/rain.png';
+          } else if (cellData.includes('晴')) {
+            imageSrc = './image/sun.png';
+          }
+          
+          // 只替換第一個句號為圖片，圖片後面加上換行
+          formattedText = cellData.replace(/。/, `<img src="${imageSrc}" alt="" style="vertical-align: middle; margin: 0 2px;"><br>`);
+        }
+        
+        // 將剩餘的句號後面加上換行
+        formattedText = formattedText.replace(/。/g, '。<br>');
         td.innerHTML = formattedText;
         row.appendChild(td);
       });

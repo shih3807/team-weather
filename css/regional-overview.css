@@ -17,22 +17,35 @@
   font-weight: 700; /* 粗體 */
   margin-bottom: 20px;
   color: #1a2332;
-  text-align: center;
+}
+
+
+.regional-overview img {
+  width: 30px;
+  display: inline-block; 
+  vertical-align: bottom;  
 }
 
 /* ============================================
    天氣預報表格樣式
    ============================================ */
 
+/* 表格容器樣式 */
+.table-wrapper {
+  overflow-x: auto;
+  max-width: 100%;
+  border-radius: 4px; /* 圓角 */
+}
+
 /* 表格整體樣式 */
 .weather-table {
   width: 100%;
-  border-collapse: collapse; /* 合併邊框，避免雙重邊框 */
+  border-collapse: separate; /* 改為 separate 以支援 sticky */
+  border-spacing: 0; /* 移除間距 */
   margin: 0 auto; /* 水平置中 */
   background-color: #ffffff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* 輕微陰影效果 */
   border-radius: 4px; /* 圓角 */
-  overflow: hidden; /* 隱藏超出圓角的內容 */
   border: 1px solid #e0e0e0; /* 淺灰色邊框 */
 }
 
@@ -44,17 +57,18 @@
   padding: 12px 8px;
   text-align: center;
   border: 1px solid #e0e0e0; /* 淺灰色邊框 */
-  font-size: 14px;
+  font-size: 16px;
 }
 
 /* 第一欄（縣市欄）寬度設定 */
 .weather-table th:first-child {
-  width: 10%;
-}
-
-/* 第二欄（時間欄）寬度設定 */
-.weather-table th:nth-child(2) {
-  width: 8%;
+  width: 120px; /* 使用固定寬度而非百分比 */
+  min-width: 120px;
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  background-color: #7ea2b7; /* 確保背景色與表頭一致 */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* 添加陰影效果，讓固定欄位更明顯 */
 }
 
 /* 表格單元格樣式 */
@@ -67,18 +81,32 @@
   transition: background-color 0.2s ease; /* 背景色變化動畫效果 */
 }
 
-/* 偶數行背景色（目前與奇數行相同，皆為白色） */
+/* 第一欄（縣市欄）固定不動 */
+.weather-table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 5;
+  background-color: #d6e7f0; /* 確保背景色與表格一致 */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+}
+
+/* 偶數行背景色 */
 .weather-table tr:nth-child(even) {
   background-color: #ffffff;
 }
 
 /* 奇數行背景色 */
 .weather-table tr:nth-child(odd) {
-  background-color: #ffffff;
+  background-color: #f7f4f4;
 }
 
 /* 滑鼠懸停時的行背景色 */
 .weather-table tr:hover {
+  background-color: #f9fafb; /* 淺灰色背景 */
+}
+
+/* 滑鼠懸停時，第一欄的背景色也要更新 */
+.weather-table tr:hover td:first-child {
   background-color: #f9fafb; /* 淺灰色背景 */
 }
 
@@ -87,26 +115,7 @@
   background-color: #f9fafb;
 }
 
-/* 合併單元格（縣市名稱欄位）樣式 */
-.weather-table td[rowspan] {
-  background-color: #ffffff; /* 白色背景 */
-  font-weight: 600; /* 半粗體 */
-  vertical-align: middle; /* 垂直置中 */
-  color: #374151; /* 深灰色文字 */
-  border-right: 1px solid #e0e0e0; /* 右側邊框 */
-}
 
-/* 第一欄非合併單元格樣式（時間欄：白天/晚上） */
-.weather-table td:first-child:not([rowspan]) {
-  font-weight: 500; /* 中等粗細 */
-  color: #374151;
-}
-
-/* 最後一欄的邊框樣式 */
-.weather-table td:last-child,
-.weather-table th:last-child {
-  border-right: 1px solid #e0e0e0;
-}
 
 /* ============================================
    響應式設計 - 行動裝置適配
