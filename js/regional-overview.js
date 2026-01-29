@@ -142,10 +142,26 @@ function resultData(transformData) {
     // 建立資料列
     tableData.forEach((rowData) => {
       const row = document.createElement('tr');
-      rowData.forEach((cellData) => {
+      rowData.forEach((cellData, cellIndex) => {
         const td = document.createElement('td');
-        // 將句號後面加上換行
-        const formattedText = cellData.replace(/。/g, '。<br>');
+        let formattedText = cellData;
+        
+        // 除了縣市欄位（索引0）之外，其他所有天氣描述欄位都要處理圖片
+        if (cellIndex > 0) {
+          // 決定使用哪個圖片
+          let imageSrc = './image/cloud.png'; // 預設
+          if (cellData.includes('雨')) {
+            imageSrc = './image/rain.png';
+          } else if (cellData.includes('晴')) {
+            imageSrc = './image/sun.png';
+          }
+          
+          // 只替換第一個句號為圖片，圖片後面加上換行
+          formattedText = cellData.replace(/。/, `<img src="${imageSrc}" alt="" style="vertical-align: middle; margin: 0 2px;"><br>`);
+        }
+        
+        // 將剩餘的句號後面加上換行
+        formattedText = formattedText.replace(/。/g, '。<br>');
         td.innerHTML = formattedText;
         row.appendChild(td);
       });
