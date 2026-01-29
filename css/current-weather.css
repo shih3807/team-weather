@@ -119,7 +119,8 @@ header
 .current-weather_local {
   height: 575px;
   width: 100%;
-  background-image: url('../image/local-weather/header.png');
+  background-color: #7ea2b7;
+  background-image: url('../image/local-weather/header.webp');
   background-position: center;
   background-size: cover;
   flex-shrink: 0;
