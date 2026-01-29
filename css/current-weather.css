@@ -202,15 +202,102 @@ header
   height: 40px;
   justify-items: center;
   margin-top: 35px;
+  border-left: #fff 1px solid;
+  padding-left: 20px;
 }
 
-/* 其他溫度區塊 */
+/* 其他天候資訊區塊 */
+/* 外層容器 */
 .current-weather_info {
-  height: 125px;
   width: 100%;
-  background-color: #fff;
+  height: 125px;
+  background-color: #ffffff;
+  padding: 32px auto;
   flex-shrink: 0;
-  border-bottom: #f5f7fa 2px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: #E5E7EB 2px solid;
+  margin-bottom: 32px;
+}
+
+/* 內層包裝 */
+.current-weather_info_container {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: 1376px;
+}
+
+/* 共通樣式：設定 ave, max, min, ci 四個區塊的基礎樣式 */
+.current-weather_info_container_ave,
+.current-weather_info_container_max,
+.current-weather_info_container_min,
+.current-weather_info_container_ci {
+  width: 320px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 16px;
+}
+
+/* icon */
+.current-weather_info_container_ave_icon,
+.current-weather_info_container_max_icon,
+.current-weather_info_container_min_icon,
+.current-weather_info_container_ci_icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E5E7EB;
+}
+
+.current-weather_info_container_ave_icon img,
+.current-weather_info_container_max_icon img,
+.current-weather_info_container_min_icon img,
+.current-weather_info_container_ci_icon img {
+  width: 24px;
+  height: 24px;
+}
+
+/* 文字區域 */
+.current-weather_info_container_ave_text,
+.current-weather_info_container_max_text,
+.current-weather_info_container_min_text,
+.current-weather_info_container_ci_text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* 標題樣式 */
+.current-weather_info_container_ave_text_key,
+.current-weather_info_container_max_text_key,
+.current-weather_info_container_min_text_key,
+.current-weather_info_container_ci_text_key {
+  font-size: 14px;
+  color: #1a2332;
+  font-weight: 100;
+}
+
+/* 數值樣式 */
+.current-weather_info_container_ave_text_value,
+.current-weather_info_container_max_text_value,
+.current-weather_info_container_min_text_value {
+  font-size: 28px;
+  font-weight: 100;
+  color: #1a2332;
+;
+}
+
+.current-weather_info_container_ci_text_value {
+  font-size: 20px;
+  font-weight: 100;
+  color: #1a2332;
+;
 }
 
 /* footer */
