@@ -97,6 +97,8 @@ const currentWeatherView = {
       '.current-weather_info_container_ci_text_value'
     );
 
+    console.log();
+
     // 注入資料
     city.textContent = weatherData.cityNameValue;
     pop.textContent = weatherData.popValue;
@@ -106,6 +108,43 @@ const currentWeatherView = {
     maxT.textContent = `${weatherData.maxTValue}°C`;
     minT.textContent = `${weatherData.minTValue}°C`;
     ci.textContent = weatherData.ciValue;
+  },
+  currentTime() {
+    const now = new Date();
+
+    // 日期
+    const year = now.getFullYear();
+    const month = now.getMonth() + 1; 
+    const date = now.getDate();
+
+    const weekArray = [
+      '星期日',
+      '星期一',
+      '星期二',
+      '星期三',
+      '星期四',
+      '星期五',
+      '星期六',
+    ];
+    const day = weekArray[now.getDay()];
+
+    const dateString = `${year} 年 ${month} 月 ${date} 日 ${day}`;
+
+    // 時間
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+    const ampm = hour >= 12 ? '下午' : '上午';
+    const twelveHourClock = hour >= 12 ? hour - 12 : hour;
+    const timeString = `最後更新 ${ampm} ${twelveHourClock}：${minute}`;
+
+    // 3. 注入到 HTML
+    const dateElement = document.querySelector('.header_info_time_date');
+    const updateElement = document.querySelector(
+      '.header_info_time_update_time'
+    );
+
+    dateElement.textContent = dateString;
+    updateElement.textContent = timeString;
   },
 };
 
@@ -133,4 +172,5 @@ const currentWeatherController = {
   },
 };
 
-currentWeatherController.WeatherInfo();
+// currentWeatherController.WeatherInfo();
+currentWeatherView.currentTime();
