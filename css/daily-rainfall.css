@@ -1,5 +1,3 @@
-#raining {
-}
 #raining > .station {
   border-bottom: 1px solid #000000;
   padding: 15px 0px;
@@ -9,3 +7,136 @@
   font-weight: bold;
   margin-bottom: 5px;
 }
+
+
+.section-divider {
+  background-color: #e8e8e8;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+/*====================== 雨量監測 ========================*/
+.rain-content {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-areas:
+    "chart status"
+    "table table";
+  gap: 24px;
+}
+
+/* 左: 長條圖 */
+.rain-chart {
+	background: #f9fafc;
+	border-radius: 12px;
+	padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-area: chart;
+}
+
+.rain-chart h3 {
+	margin: 0 0 12px;
+	font-size: 16px;
+	color: #333;
+}
+
+/* 右: 數據統計 */
+.rain-status {
+	background: #f9fafc;
+	border-radius: 12px;
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+  grid-area: status;
+  min-height: 200px;
+}
+
+/* 標題 + 分頁 */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagination button {
+  border: none;
+  background: #e0e3f0;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background: #cfd8e6;
+}
+
+/* 表格 */
+.rain-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  grid-area: table;
+}
+
+.rain-table th,
+.rain-table td {
+  padding: 8px;
+  text-align: center;
+}
+
+.rain-table thead {
+  background: #eef2f7;
+}
+
+.rain-table tbody tr:nth-child(even) {
+  background: #f2f5fa;
+}
+
+
+/* 基準說明 */
+.base {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+.base span {
+  padding: 4px 8px;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.base .low{
+  background: #a7c7e7;
+}
+.base .mid {
+  background: #6fa8dc;
+}
+.base .high {
+  background: #0b5394;
+}
+
+/* RWD */
+@media (max-width: 600px) {
+  .rainfall {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/*====================== 雨量監測 ========================*/
