@@ -328,6 +328,9 @@ footer {
 
 /* --- 平板模式 (1024px 以下) --- */
 @media (max-width: 1024px) {
+  .current-weather_local_container_text_messenge{
+    height: auto;
+  }
   .current-weather_info {
     height: auto;
     padding: 24px 0;
