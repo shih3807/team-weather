@@ -81,8 +81,8 @@ function resultData(transformData) {
     // 建立新陣列，第一個元素是縣市名稱
     const transformedArray = [county];
 
-    // 將該縣市的所有 WeatherDescription 值加入陣列
-    weatherData.forEach((item) => {
+    // 將該縣市的所有 WeatherDescription 值加入陣列，最多6個（加上縣市名稱共7個元素）
+    weatherData.slice(0, 6).forEach((item) => {
       transformedArray.push(item.WeatherDescription);
     });
 
