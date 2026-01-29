@@ -118,20 +118,6 @@ async function fetchrainstation() {
     nextBtn.disabled = currentpage === totalpages;
   }
 
-  // prevBtn.addEventListener('click', () => {
-  //   if ( currentpage > 1 ) {
-  //     currentpage--;
-  //     rendertable();
-  //   }
-  // });
-
-  // nextBtn.addEventListener('click', () => {
-  //   if ( currentpage < totalpages) {
-  //     currentpage++;
-  //     rendertable();
-  //   }
-  // });
-
   prevBtn.onclick =  () => {
     if ( currentpage > 1 ) {
       currentpage--;
@@ -155,73 +141,35 @@ async function fetchrainstation() {
 fetchrainstation();
 
 
-
-
-
-
-
-
-
-
-
-
-
-// const labels = ['台北', '新北', '桃園','台中', '台南','高雄', '花蓮','澎湖'];
-//   const data = [18, 25, 12, 30, 22, 28, 52, 3];
-
-//   const rainfallData = [
-//     { city: '宜蘭', max: 35, min: 12},
-//     { city: '花蓮', max: 35, min: 12},
-//     { city: '台東', max: 35, min: 12},
-//     { city: '澎湖', max: 35, min: 12},
-//     { city: '金門', max: 35, min: 12},
-//     { city: '連江', max: 35, min: 12},
-//     { city: '台北', max: 35, min: 12},
-//     { city: '新北', max: 35, min: 12},
-//     { city: '桃園', max: 35, min: 12},
-//     { city: '台中', max: 35, min: 12},
-//     { city: '台南', max: 35, min: 12},
-//     { city: '高雄', max: 35, min: 12},
-//     { city: '基隆', max: 35, min: 12},
-//     { city: '新竹縣', max: 35, min: 12},
-//     { city: '新竹市', max: 35, min: 12},
-//     { city: '苗栗', max: 35, min: 12},
-//     { city: '彰化', max: 35, min: 12},
-//     { city: '南投', max: 35, min: 12},
-//     { city: '嘉義縣', max: 35, min: 12},
-//     { city: '嘉義市', max: 35, min: 12},
-//     { city: '屏東', max: 35, min: 12},
-//     { city: '雲林', max: 35, min: 12},
-//   ]
-
-
-
-
-
-
-// let records=null;
-// fetch("https://opendata.cwa.gov.tw/api/v1/rest/datastore/O-A0002-001?Authorization="+CWB_API_KEY).then((response)=>{
-// 	return response.json();
-// }).then((data)=>{
-// 	records=data.records;
-// 	renderRaining(0);
-// });
-// function renderRaining(page){
-// 	let startIndex=page*10;
-// 	let endIndex=(page+1)*10;
-// 	const container=document.querySelector("#raining");
-// 	for(let i=startIndex;i<endIndex;i++){
-// 		const station=records.Station[i];
-// 		const item=document.createElement("div");
-// 		item.className="station";
-// 		const name=document.createElement("div");
-// 		name.className="name";
-// 		name.textContent=station.StationName+"、"+station.GeoInfo.TownName+"、"+station.GeoInfo.CountyName;
-// 		const amount=document.createElement("amount");
-// 		amount.className="amount";
-// 		amount.textContent=station.RainfallElement.Now.Precipitation+" mm";
-// 		item.appendChild(name);
-// 		item.appendChild(amount);
-// 		container.appendChild(item);
-// 	}
+//   .then((response) => {
+//     return response.json();
+//   })
+//   .then((data) => {
+//     records = data.records;
+//     renderRaining(0);
+//   });
+// function renderRaining(page) {
+//   let startIndex = page * 10;
+//   let endIndex = (page + 1) * 10;
+//   const container = document.querySelector('#raining');
+//   for (let i = startIndex; i < endIndex; i++) {
+//     const station = records.Station[i];
+//     const item = document.createElement('div');
+//     item.className = 'station';
+//     const name = document.createElement('div');
+//     name.className = 'name';
+//     name.textContent =
+//       station.StationName +
+//       '、' +
+//       station.GeoInfo.TownName +
+//       '、' +
+//       station.GeoInfo.CountyName;
+//     const amount = document.createElement('amount');
+//     amount.className = 'amount';
+//     amount.textContent = station.RainfallElement.Now.Precipitation + ' mm';
+//     item.appendChild(name);
+//     item.appendChild(amount);
+//     container.appendChild(item);
+//   }
 // }
+
