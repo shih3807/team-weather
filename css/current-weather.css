@@ -307,4 +307,12 @@ footer {
   background-color: #7ea2b7;
   bottom: 0;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 33px;
+}
+.footer_text{
+    font-size: 14px;
+    color: #fff;
 }
