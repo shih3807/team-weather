@@ -208,10 +208,11 @@ const currentWeatherModel = {
 
     // 時間
     const hour = now.getHours();
-    const minute = now.getMinutes();
+    const minute = now.getMinutes().toString().padStart(2, '0');
     const ampm = hour >= 12 ? '下午' : '上午';
-    const twelveHourClock = hour >= 12 ? hour - 12 : hour;
-    const timeString = `最後更新 ${ampm} ${twelveHourClock}：${minute}`;
+    const twelveHourClock = hour >= 13 ? hour - 12 : hour;
+    const twoDigitHour = twelveHourClock.toString().padStart(2, '0')
+    const timeString = `最後更新 ${ampm} ${twoDigitHour}：${minute}`;
 
     return {
       date: dateString,
