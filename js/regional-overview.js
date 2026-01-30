@@ -14,7 +14,7 @@ function getweekdayDate(weekdays) {
 // 取得氣象局的臺灣各鄉鎮市區未來1週天氣預報
 async function fetchWeekWeatherInfo() {
   const ElementName = '天氣預報綜合描述';
-  const timeFrom = getweekdayDate(1); //預期從明天開始查
+  const timeFrom = getweekdayDate(1); //1的意思是今天加一天，預期從明天開始查
   const URL = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=${CWB_API_KEY}&ElementName=${ElementName}&timeFrom=${timeFrom}`;
   const res = await fetch(URL, {
     method: 'GET',
